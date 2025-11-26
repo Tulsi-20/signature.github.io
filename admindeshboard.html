@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 230px;
+            height: 100vh;
+            background: #111;
+            padding: 20px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .sidebar.closed {
+            width: 70px;
+        }
+
+        .main-content {
+            margin-left: 230px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .main-content.expanded {
+            margin-left: 70px;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: royalblue;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <p><a href="#">Deshboard</a></p>
+    <p><a href="#">Products</a></p>
+    <p><a href="#">Users</a></p>
+</div>
+
+<div class="main-content" id="content">
+    <h1>Welcome, Admin!</h1>
+</div>
+
+<button class="toggle-btn" id="toggleBtn">☰</button>
+
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+    const btn = document.getElementById('toggleBtn');
+
+    btn.addEventListener('click', () => {
+        sidebar.classList.toggle("closed");
+        content.classList.toggle("expanded");
+    });
+</script>
+
+</body>
+</html>

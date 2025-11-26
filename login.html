@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+  body{
+    margin:0;
+    padding:0;
+    background:#ececec;
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+
+  .login-box{
+    background:#fff;
+    width:350px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+  }
+
+  h2{
+    text-align:center;
+    margin-bottom:20px;
+  }
+
+  .input-box{
+    margin-bottom:15px;
+  }
+
+  .input-box label{
+    font-size:14px;
+    display:block;
+    margin-bottom:5px;
+  }
+
+  .input-box input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+  }
+
+  .btn{
+    width:100%;
+    padding:10px;
+    background:#0078ff;
+    color:#fff;
+    border:0;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+  }
+
+  .btn:hover{
+    background:#0067d6;
+  }
+
+  .error{
+    color:#ff0000;
+    margin-top:8px;
+    text-align:center;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Login</h2>
+
+  <div class="input-box">
+    <label>Username</label>
+    <input type="text" id="username">
+  </div>
+
+  <div class="input-box">
+    <label>Password</label>
+    <input type="password" id="password">
+  </div>
+
+<button class="btn" onclick="login()">Login</button>
+
+  <div id="error" class="error"></div>
+</div>
+
+<script>
+  function login(){
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+
+    if(user === "" || pass === ""){
+      error.innerText = "Please enter username & password.";
+      return;
+    }
+
+    // Dummy login check
+    // Admin login
+    if(user === "admin" && pass === "admin"){
+      localStorage.setItem("loggedUser", "admin");
+      window.location.href = "admindeshboard.html";
+      return;
+    }
+
+    // Normal user
+    // Here you can also check DB later
+    localStorage.setItem("loggedUser", user);
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>
