@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout — Signature Look</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Checkout</h1>
+
+    <form class="checkoutForm">
+      <label>Name</label>
+      <input type="text" id="cname" required>
+
+      <label>Phone</label>
+      <input type="text" id="cphone" required>
+
+      <label>Address</label>
+      <textarea id="caddress" required></textarea>
+
+      <button class="btn2" onclick="placeOrder(event)">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    function placeOrder(e){
+      e.preventDefault();
+
+      alert("Order placed successfully!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

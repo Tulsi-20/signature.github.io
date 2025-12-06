@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart — Signature Look</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scrip.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">Signature Look</div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">❤️</a>
+      <a href="cart.html">🛒 <span id="cartCount" class="count-badge">0</span></a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h1>Your Cart</h1>
+
+    <div id="cartItems"></div>
+
+    <h2>Total: <span id="cartTotal">₹0</span></h2>
+
+    <button class="btn" onclick="clearCart()">Clear Cart</button>
+    <button class="btn" onclick="alert('Checkout coming soon!')">Checkout</button>
+    <button class="btn" onclick="buyNow()">Buy Now</button>
+
+  </div>
+
+
+  <div class="footer">
+    © 2025 Signature Look — All Rights Reserved
+  </div>
+
+  <script>
+    loadCart();
+  </script>
+
+</body>
+</html>

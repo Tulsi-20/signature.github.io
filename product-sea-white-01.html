@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sea White 01 — Signature Look</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scrip.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">Signature Look</div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+      <a href="wishlist.html" class="icon-link">
+        ❤️ <span id="wishCount" class="count-badge">0</span>
+      </a>
+
+      <a href="cart.html" class="icon-link">
+        🛒 <span id="cartCount" class="count-badge">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Product Section -->
+  <!-- Product Section -->
+<div class="container product-box">
+  <img id="pImg" class="main-img">
+
+  <div class="product-details">
+    <h1 id="pName"></h1>
+    <p class="price" id="pPrice"></p>
+
+    <!-- WORKING ADD TO CART BUTTON -->
+    <button class="btn" id="addCartBtn">Add to Cart</button>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const img = params.get("img");
+const name = params.get("name");
+const price = Number(params.get("price")); // make sure price is number
+
+document.getElementById("pImg").src = img;
+document.getElementById("pName").innerText = name;
+document.getElementById("pPrice").innerText = "₹" + price;
+
+// Add to Cart
+document.getElementById("addCartBtn").addEventListener("click", function() {
+    addToCart(img, name, price);
+});
+</script>
+    <div class="footer">
+        © 2025 Signature Look — All Rights Reserved
+    </div>  
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Wishlist</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">Signature Look</div>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="wishlist.html">❤️ <span id="wishCount" class="count-badge">0</span></a>
+    <a href="cart.html">🛒 <span id="cartCount" class="count-badge">0</span></a>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Your Wishlist</h1>
+  <div id="wishItems"></div>
+</div>
+
+<div class="footer">© 2025 Signature Look</div>
+
+<script>
+function loadWishlist() {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let html = "";
+
+    wishlist.forEach((item, index) => {
+        html += `
+        <div class="card">
+            <img src="${item.img}" class="card-img">
+            <h3>${item.name}</h3>
+            <p>₹${item.price}</p>
+            <button class="btn" onclick="addToCart('${item.img}','${item.name}',${item.price})">Add to Cart 🛒</button>
+            <button class="btn remove-btn" onclick="removeWishlist(${index})">Remove ❤️</button>
+        </div>
+        `;
+    });
+
+    if (wishlist.length === 0) {
+        html = "<p>Your wishlist is empty 😢</p>";
+    }
+
+    document.getElementById("wishItems").innerHTML = html;
+    updateCounts();
+}
+
+// Remove item from wishlist
+function removeWishlist(index) {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    wishlist.splice(index,1);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    loadWishlist();
+}
+
+// Load wishlist on page load
+document.addEventListener("DOMContentLoaded", loadWishlist);
+</script>
+
+</body>
+</html>
